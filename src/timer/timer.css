@@ -1,0 +1,110 @@
+/* ============================================
+   TIMER.CSS
+   --------------------------------------------
+   Tu sa vytvára VZHĽAD odpočtu do svadby.
+   Teda to, ako tie 4 políčka s číslami
+   (dni / hodiny / minúty / sekundy) vyzerajú.
+
+   Samotný odpočet vytvára JavaScript
+   v timer.js. Ten do HTML vloží prvky
+   s triedami (.timer, .timer__box...),
+   a tento CSS súbor im dá štýl.
+
+   Čo nájdeš nižšie:
+   - .timer          → celý blok odpočtu
+                       (biele pozadie, vycentrovaný)
+   - .timer__label   → text "Do svadby zostáva"
+   - .timer__grid    → rad 4 políčok vedľa seba
+   - .timer__box     → jedno políčko (s číslom a jednotkou)
+                       (pri hover sa nadvihne a pridá tieň)
+   - .timer__number  → veľké číslo (dni, hodiny...)
+   - .timer__unit    → malý popis pod číslom (dní, hodín...)
+   - .timer__date    → text "12. jún 2027 o 15:00"
+   - @media (max-width: 600px)
+                     → na mobile sa všetko zmenší
+
+   Používa CSS premenné (--biela, --zelena...),
+   ktoré sú definované v style.css.
+   ============================================ */
+   
+
+
+.timer {
+    text-align: center;
+    padding: 90px 20px;
+        background: rgba(255, 255, 255, 0.2);    /* 20 % priesvitne */
+
+}
+
+.timer__label {
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--zelena);
+    opacity: 0.8;
+    margin-bottom: 44px;
+}
+
+.timer__grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 44px;
+}
+
+.timer__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    padding: 28px 18px;
+    background: var(--zelena-svetla);
+    border-radius: 16px;
+    border: 1px solid rgba(122, 155, 118, 0.25);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.timer__box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(122, 155, 118, 0.18);
+}
+
+.timer__number {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 3.4rem;
+    font-weight: 400;
+    line-height: 1;
+    color: var(--lososova);
+    margin-bottom: 10px;
+    font-variant-numeric: tabular-nums;
+}
+
+.timer__unit {
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--zelena);
+    opacity: 0.85;
+}
+
+.timer__date {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.6rem;
+    font-style: italic;
+    color: var(--zelena);
+    opacity: 0.9;
+}
+
+@media (max-width: 600px) {
+    .timer { padding: 60px 16px; }
+    .timer__grid { gap: 12px; }
+    .timer__box { min-width: 78px; padding: 18px 12px; border-radius: 12px; }
+    .timer__number { font-size: 2.1rem; }
+    .timer__unit { font-size: 0.6rem; letter-spacing: 1px; }
+    .timer__date { font-size: 1.2rem; }
+}

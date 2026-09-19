@@ -1,0 +1,154 @@
+/* ============================================
+   APPBAR.CSS
+   --------------------------------------------
+   Tu sa vytvára VZHĽAD horného panelu.
+   Teda to, ako ten pruh hore vyzerá —
+   jeho farba, výška, rozloženie a animácie.
+
+   Samotný panel vytvára JavaScript
+   v appbar.js. Ten mu pridá triedy
+   (.appbar, .appbar__nav...), a tento
+   CSS súbor im dá štýl.
+
+   Čo nájdeš nižšie:
+   - .appbar           → celý horný pruh
+                         (zelené pozadie, sticky,
+                         vľavo mená, vpravo odkazy)
+   - .appbar__brand    → ľavá časť s menami a srdiečkom
+   - .appbar__names    → text "Simona & Samuel"
+   - .appbar__amp      → ozdobné "&" (lososová kurzíva)
+   - .appbar__heart    → srdiečko ❤
+                         (zväčší sa pri hover na brand)
+   - .appbar__nav      → pravá časť s odkazmi
+   - .appbar__link     → jeden odkaz
+                         (pri hover sa podčiarkne lososovo)
+   - @media (max-width: 700px)
+                       → na mobile sa panel poskladá
+                         pod seba (miesto vedľa seba)
+
+   Používa CSS premenné (--zelena, --biela...),
+   ktoré sú definované v style.css.
+   ============================================ */
+
+
+
+.appbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 14px 40px;
+
+    background: var(--zelena);
+    color: var(--biela);
+
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+}
+
+.appbar__brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.appbar__names {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: var(--biela);
+    text-transform: uppercase;
+}
+
+.appbar__amp {
+    color: var(--lososova);
+    font-style: italic;
+    margin: 0 4px;
+}
+
+.appbar__heart {
+    color: var(--lososova);
+    font-size: 20px;
+    transition: transform 0.3s;
+}
+
+.appbar__heart--inline {
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+.appbar__brand:hover .appbar__heart {
+    transform: scale(1.15);
+}
+
+.appbar__nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.appbar__link {
+    color: var(--biela);
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    position: relative;
+    padding: 4px 0;
+
+    transition: color 0.3s;
+}
+
+.appbar__link::after {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--lososova);
+
+    transition: width 0.3s;
+}
+
+.appbar__link:hover {
+    color: var(--lososova-svetla);
+}
+
+.appbar__link:hover::after {
+    width: 100%;
+}
+
+@media (max-width: 700px) {
+
+    .appbar {
+        flex-direction: column;
+        gap: 14px;
+        padding: 14px 20px;
+    }
+
+    .appbar__nav {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .appbar__names {
+        font-size: 17px;
+        letter-spacing: 2px;
+    }
+
+    .appbar__link {
+        font-size: 12px;
+    }
+}

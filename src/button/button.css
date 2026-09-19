@@ -1,0 +1,50 @@
+/* ============================================
+   BUTTON.CSS
+   --------------------------------------------
+   Tu sa vytvára VZHĽAD tlačidla.
+   Teda to, ako tlačidlo vyzerá na stránke —
+   jeho farba, tvar, veľkosť, tieň, atď.
+
+   Samotné tlačidlo vytvára JavaScript
+   v súbore button.js (createButton).
+   Ten mu pridá triedu .button, a tento
+   CSS súbor mu dá štýl.
+
+   Čo nájdeš nižšie:
+   - .button         → základný vzhľad tlačidla
+                       (lososová farba, zaoblené rohy,
+                       tieň, veľké písmená)
+   - .button:hover   → čo sa stane, keď na tlačidlo
+                       prejdeš myšou (mierne sa nadvihne,
+                       zmení farbu, zväčší tieň)
+   - .button:active  → čo sa stane pri kliku
+                       (vráti sa na pôvodnú pozíciu)
+   ============================================ */
+
+   
+.button {
+    padding: 14px 32px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    background: var(--lososova);
+    color: var(--biela);
+    font-size: 16px;
+    font-weight: 500;
+    font-family: inherit;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(250, 128, 114, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    margin: 8px;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    background: #e86d5f;
+    box-shadow: 0 6px 20px rgba(250, 128, 114, 0.45);
+}
+
+.button:active {
+    transform: translateY(0);
+}

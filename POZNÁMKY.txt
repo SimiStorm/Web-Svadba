@@ -1,0 +1,48 @@
+
+Karty sa prepinaju kliknutim, vola sa to View
+
+Casti sa daju oddelovat tak, ze pridas transparentny pas, 
+napr hlavna stranka moze byt:
+
+┌───────────────────────────────────┐
+│ APPBAR (zelený)                   │
+├───────────────────────────────────┤
+│  [FOTKA VIDNO — 200 px prázdno]   │
+├───────────────────────────────────┤
+│  ⏱ TIMER (na fotke)              │
+├───────────────────────────────────┤
+│  [FOTKA VIDNO — 100 px prázdno]   │
+├───────────────────────────────────┤
+│  ───────────────────────────────  │
+│  Tešíme sa na vás! ❤️   text     │  ← biely pás
+│  ───────────────────────────────  │
+├───────────────────────────────────┤
+│  [RSVP] [Program] [Galéria]       │
+└───────────────────────────────────┘
+
+
+
+
+
+
+
+
+
+
+
+
+
+Účet:
+
+Platforma: https://github.com/login
+Login: kulichovasimona2@gmail.com
+Pass:Chcem**************
+
+Hostovaná stránka: https://github.com/SimiStorm/Web-Ruby/blob/main/Simka%20Web/index.html
+Link na stránku: https://simistorm.github.io/Web-Ruby/
+
+
+
+
+
+

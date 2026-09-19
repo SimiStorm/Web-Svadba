@@ -1,0 +1,75 @@
+/* ============================================
+   LOCATION.CSS
+   --------------------------------------------
+   Vzhľad sekcie "Miesto" — blok s informáciami
+   o mieste svadby a mini mapou.
+
+   Sekciu vytvára location.js, tento súbor
+   jej dá štýl (triedy .location, .location__map...).
+
+   Používa CSS premenné (--zelena, --biela...),
+   ktoré sú definované v style.css.
+   ============================================ */
+
+.location {
+    text-align: center;
+    padding: 90px 20px;
+    background: var(--biela);
+}
+
+.location__label {
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--zelena);
+    opacity: 0.8;
+    margin-bottom: 18px;
+}
+
+.location__title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: var(--zelena);
+    margin-bottom: 12px;
+}
+
+.location__address {
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
+    font-size: 1rem;
+    color: var(--tmava);
+    opacity: 0.8;
+    margin-bottom: 36px;
+}
+
+.location__map {
+    max-width: 800px;
+    margin: 0 auto 28px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(122, 155, 118, 0.18);
+}
+
+.location__link {
+    display: inline-block;
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--lososova);
+    text-decoration: none;
+    border-bottom: 1px solid var(--lososova);
+    padding-bottom: 4px;
+    transition: opacity 0.3s;
+}
+
+.location__link:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 600px) {
+    .location { padding: 60px 16px; }
+    .location__title { font-size: 1.8rem; }
+    .location__map iframe { height: 260px; }
+}

@@ -1,0 +1,204 @@
+<!--
+
+Moj projekt musi splnat tieto poziadavky:
+
+niekedy v buducnosti bude spojeny vo Vite ale nie teraz, teraz chcem mat osobitne vsetky casti
+napriklad button, timer a ostatne nech sa v tom lahko orientuje
+chcem aby boli rozdelene subory podobne ako Button(html css a javascript)
+musi sa dat hostovat cez github a nacitat v prehliadaci
+musi mat moderny dizajn
+musi byt jednoduchy a efektivny - ziadne zlozitosti
+musi byt cisty a prehladny, lahko rozsiritelny pre stredne velky projekt
+moj kod musim urobit tak, tak aby som to niekedy mohla hostovat na githube pages a otvorit v prehliadaci
+
+
+
+### Dolezite pre AI ked mi radi ako opravit chyby!!!:
+Prosim, neposielaj mi cely kod kym o to neziadam, ukaz mi 
+co mam teraz, ako to ma byt spravne, presne tu cast chcem vidiet, zvyrazni co si zmenil
+
+potrebujem vysvetlenie pre level Zaciatocnik
+najradsej by som bola keby mi vsetko vysvetlis ludsky nie programatorsky
+
+vzdy ked ides nieco spravi podla mna  by si mi mal povedat co ides spravit a ci je to to, čo chcem,
+prípadne dať nejaké možnosti ako sa to dá spraviť aby som si mohla vybrať
+
+Ku každej funkcii by som potrebovala mini stručný popis, na čo funkcia slúži, ak je dlhá a nejasná,
+tak najlepšie aj jednoduchy popis co sa v nej presne deje krok za krokom
+
+-->
+
+
+<!--     KONIEC KOMENTARU.   -->
+
+
+
+
+
+<!-- ============================================
+     INDEX.HTML
+     --------------------------------------------
+     Hlavná (a jediná) HTML stránka projektu.
+     Je to kostra, do ktorej sa vkladá všetko
+     ostatné (appbar, timer, tlačidlá) — a to
+     cez JavaScript.
+
+     Čo tu nájdeš:
+
+     V HLAVE (<head>):
+     - <meta charset>  → správne zobrazenie
+                         slovenskej diakritiky
+                         (á, é, č, ž...)
+     - <meta viewport> → správne zobrazenie
+                         na mobile
+     - <title>         → text v záložke prehliadača
+     - <link> na Google fonty
+                       → Cormorant Garamond a Montserrat
+     - 4× <link rel="stylesheet">
+                       → načítajú CSS súbory:
+                         style.css  (musí byť PRVÝ,
+                                     definuje farby),
+                         appbar.css, timer.css,
+                         button.css
+
+     V TELE (<body>):
+     - <div id="appbar">  → sem JS vloží horný panel
+     - <div id="timer">   → sem JS vloží odpočet
+     - <div id="btn1/2/3"> → sem JS vloží tlačidlá
+     - <script type="module" src="./src/main.js">
+                          → spustí JavaScript,
+                            ktorý to všetko naplní
+
+     Prečo je HTML taký krátky:
+     Obsah jednotlivých komponentov (appbar,
+     timer, button) NIE JE tu, ale v ich .js
+     súboroch. Vďaka tomu sa v projekte ľahko
+     orientuješ — keď chceš zmeniť appbar,
+     otvoríš len appbar.js.
+
+     Poznámka do budúcna:
+     Keď pridáš nový komponent (napr. location),
+     musíš sem pridať 3 veci:
+       1) <link> na jeho .css
+       2) <div id="..."> kam sa vloží
+       3) import + volanie v main.js
+     ============================================ -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="sk">
+
+
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Simona & Samuel</title>
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+      <link rel="stylesheet" href="./src/style.css">
+      <link rel="stylesheet" href="./src/appbar/appbar.css">
+      <link rel="stylesheet" href="./src/timer/timer.css">
+      <link rel="stylesheet" href="./src/location/location.css">
+      <link rel="stylesheet" href="./src/button/button.css">
+  </head>
+
+
+  <body>
+      <!-- APP BAR je vždy viditeľný (hore) -->
+      <div id="appbar"></div>
+
+        <!-- VIEW 1: Hlavný obsah -->
+        <!-- Pásy majú nastavenia v style.css -->
+
+    <main id="view-home" class="view">
+
+        <!-- Priehľadný pás — 200 px (vidno fotku) -->
+        <div class="home-spacer home-spacer--large"></div>
+
+        <!-- Timer (na fotke) -->
+        <div id="timer"></div>
+
+        <!-- Priehľadný pás — 100 px (vidno fotku) -->
+        <div class="home-spacer"></div>
+
+        <!-- Biely pás s textom -->
+        <section class="home-info">
+            <p>S láskou Vás pozývame na náš svadobný deň,
+               ktorý sa uskutoční v sobotu 12. júna 2027
+               o 15:00 v Kostole vo Vlčinciach.</p>
+
+            <p>Tento deň je pre nás výnimočný — je to deň,
+               kedy si pred Bohom, pred rodinou a pred
+               všetkými, ktorých máme radi, povieme svoje
+               áno. Budeme sa tešiť, ak pri tom nebudete
+               chýbať.</p>
+
+            <p>Obrad sa začne o 15:00. Prosíme Vás, aby ste
+               prišli s malým predstihom, aby ste si mohli
+               nájsť svoje miesto a v pokoji si vychutnať
+               slávnostnú atmosféru. Obrad potrvá približne
+               45 minút.</p>
+
+            <p>Po obrade srdečne pozývame všetkých hostí
+               na svadobnú hostinu, ktorá sa bude konať
+               v priestoroch neďalekej reštaurácie. Čaká
+               Vás slávnostná večera, prípitok, krájanie
+               svadobnej torty a veselica až do skorých
+               ranných hodín. Pre deti bude pripravený
+               detský kútik s hrami a sladkosťami.</p>
+
+            <p>Vaša prítomnosť je pre nás tým najkrajším
+               darčekom. Ak by ste nás napriek tomu chceli
+               obdarovať, budeme vďační za akýkoľvek
+               príspevok do spoločnej obálky, ktorá bude
+               k dispozícii pri vchode do sály.</p>
+
+            <p>Ak máte akékoľvek otázky ohľadom obradu,
+               hostiny alebo dopravy, neváhajte nás
+               kontaktovať. Radi Vám odpovieme.</p>
+
+            <p>Tešíme sa, že tento výnimočný deň strávime
+               spolu s Vami. ❤️</p>
+
+            <p class="home-info__sign">Simona &amp; Samuel</p>
+        </section>
+
+        <!-- Tlačidlá -->
+        <div id="btn1"></div>
+        <div id="btn2"></div>
+        <div id="btn3"></div>
+
+    </main>
+
+      <!-- VIEW 2: Program -->
+      <main id="view-program" class="view hidden">
+        <h1>Tu bude stránka Program</h1>
+          <!-- sem neskôr pridáš obsah programu -->
+      </main>
+
+      <!-- VIEW 3: Mapa -->
+      <main id="view-location" class="view hidden">
+          <div id="location"></div>
+      </main>
+
+      <!-- VIEW 4: RSVP -->
+      <main id="view-rsvp" class="view hidden">
+        <h1>Milujem ta simi haha chi chi</h1>
+          <!-- sem neskôr pridáš RSVP formulár -->
+      </main>
+
+      <!-- VIEW 5: Galéria -->
+      <main id="view-galeria" class="view hidden">
+        <h1>Cmuk :*</h1>
+          <!-- sem neskôr pridáš galériu -->
+      </main>
+
+      <script type="module" src="./src/main.js"></script>
+
+  </body>
+</html>

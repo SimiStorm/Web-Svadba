@@ -1,0 +1,91 @@
+/* ============================================
+   STYLE.CSS
+   --------------------------------------------
+   Tu sú GLOBÁLNE nastavenia pre celú stránku.
+   Platia pre všetko — appbar, timer, tlačidlá.
+
+   Čo nájdeš nižšie:
+   - :root      → farby pre celú stránku
+                  (zelená, lososová, biela, tmavá)
+                  a ich svetlejšie varianty.
+                  Odkiaľkoľvek ich použiješ cez
+                  var(--zelena) a pod.
+
+   - *          → reset všetkých prvkov
+                  (zruší predvolené okraje
+                  a nastaví jednotné box-sizing)
+
+   - body       → základný vzhľad stránky
+                  (font, farba textu, pozadie)
+
+   Tento súbor sa načíta ako PRVÝ v index.html,
+   aby farby a reset boli dostupné pre všetky
+   ostatné CSS súbory (appbar, button, timer).
+   ============================================ */
+   
+
+:root {
+    --zelena: #7a9b76;
+    --zelena-svetla: #e8f0e6;
+    --lososova: #fa8072;
+    --lososova-svetla: #ffe4de;
+    --biela: #ffffff;
+    --tmava: #2c3e2e;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Tu sa meni obrazok pozadia */
+body {
+    font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+    background: url('../assets/macinec2.png') center/cover no-repeat fixed;
+    color: var(--tmava);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/*     Bez toho sa views nezobrazia správne (všetky by boli viditeľné naraz  */
+.view.hidden {
+    display: none;
+}
+
+
+
+/* ============================================
+   HOME — pásy a bloky na hlavnej stránke
+   ============================================ */
+
+/* Priehľadný pás — vidno cez neho fotku.
+   Slúži ako oddychový priestor medzi sekciami. */
+.home-spacer {
+    height: 100px;              /* predvolená výška */
+}
+
+/* Väčší priehľadný pás (napr. hore pod appbarom) */
+.home-spacer--large {
+    height: 200px;
+}
+
+/* Biely pás s textom */
+.home-info {
+    background: rgba(255, 255, 255, 0.6);    /*  20 % priesvitne */
+    padding: 60px 20px;
+    text-align: center;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--cierna);
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+/* Na mobile menšie odsadenia */
+@media (max-width: 600px) {
+    .home-spacer { height: 60px; }
+    .home-spacer--large { height: 120px; }
+    .home-info { padding: 40px 16px; font-size: 1.2rem; }
+}
